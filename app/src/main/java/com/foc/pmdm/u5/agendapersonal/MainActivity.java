@@ -2,6 +2,7 @@ package com.foc.pmdm.u5.agendapersonal;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import java.util.List;
 
@@ -22,8 +23,15 @@ public class MainActivity extends AppCompatActivity {
 
         List<Contacto> contacts = db.getAllContacts();
 
+        String log="";
         for (Contacto cn : contacts) {
-            String log = "Id: " + cn.getID() + " ,Name: " + cn.getName() + " ,Phone: " + cn.getPhoneNumber();
+            log += "Id: " + cn.getID() + " ,Name: " + cn.getName() + " ,Phone: " + cn.getPhoneNumber();
+            log+="\n"; // Nueva línea
         }
+
+        TextView tvLog=(TextView)findViewById(R.id.tvLog);
+        tvLog.setText(log);
+
+        //TODO: mostrar los datos en un listview
     }
 }

@@ -76,6 +76,8 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         // updating row
         return db.update(TABLE_CONTACTS, values, COLUMNA_ID + " = ?",
                 new String[] { String.valueOf(contact.getID()) });
+
+        //TODO: cerrar db
     }
 
 
@@ -103,6 +105,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         SQLiteDatabase db=this.getReadableDatabase();
 
+        // Select * from Contactos where id=?
         Cursor cursor=db.query(TABLE_CONTACTS,new String[]{COLUMNA_ID,COLUMNA_NAME,COLUMNA_PHONE},
                 COLUMNA_ID +" =?",new String[]{id},null,null,null );
 
